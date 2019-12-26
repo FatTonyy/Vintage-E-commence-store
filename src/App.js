@@ -15,5 +15,17 @@ import Products from "./pages/Products";
 // components
 
 export default function App() {
-  return <h1>hello from app component</h1>;
+  return (
+    <Router>
+      <Route exact path="/">
+        <Home />
+      </Route>
+      <Route exact path="/about">
+        <About />
+      </Route>
+      <Route exact path="/cart">
+        <Cart />
+      </Route>
+    </Router>
+  );
 }
