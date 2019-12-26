@@ -17,15 +17,23 @@ import Products from "./pages/Products";
 export default function App() {
   return (
     <Router>
-      <Route exact path="/">
-        <Home />
-      </Route>
-      <Route exact path="/about">
-        <About />
-      </Route>
-      <Route exact path="/cart">
-        <Cart />
-      </Route>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+
+        <Route exact path="/about">
+          <About />
+        </Route>
+
+        <Route exact path="/cart">
+          <Cart />
+        </Route>
+
+        <Route path="*">
+          <Error />
+        </Route>
+      </Switch>
     </Router>
   );
 }
