@@ -30,6 +30,26 @@ export default function App() {
           <Cart />
         </Route>
 
+        <Route exact path="/checkout">
+          <Checkout />
+        </Route>
+
+        <Route exact path="/login">
+          <Login />
+        </Route>
+
+        <Route exact path="/products">
+          <Products />
+        </Route>
+
+        <Route
+          exact
+          path="/products/:id"
+          children={<ProductDetails></ProductDetails>}
+        >
+          <ProductDetails />
+        </Route>
+
         <Route path="*">
           <Error />
         </Route>
