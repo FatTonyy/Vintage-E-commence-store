@@ -181,7 +181,7 @@ Hero
 ======
 */
 .hero {
-  min-height: calc(65vh);
+  min-height: calc(85vh);
   background: linear-gradient(
       to right,
       rgba(0, 0, 0, 0.7) 50%,
