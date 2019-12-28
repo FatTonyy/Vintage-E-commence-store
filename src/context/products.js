@@ -1,16 +1,24 @@
 // products context
 import React from "react";
-
+import axios from "axios";
+import url from "../utils/URL";
 // useState is a method that comes with react and returns two values
-
 export const ProductContext = React.createContext();
 
-// Provider, consumer
+// Provider, consumer, useContext()
 
 export default function ProductProvider({ children }) {
   const [loading, setLoading] = React.useState(false);
   const [products, setProducts] = React.useState([]);
   const [featured, setFeatured] = React.useState([]);
+
+  // function will run by default after every render
+  React.useEffect(() => {
+    axios
+      .get(`${url}/products`)
+      .then(storeProducts => console.log(storeProducts));
+    return () => {};
+  });
 
   return (
     <ProductContext.Provider value={{ products, loading, featured }}>
