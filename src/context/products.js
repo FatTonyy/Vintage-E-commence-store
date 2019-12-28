@@ -2,6 +2,7 @@
 import React from "react";
 import axios from "axios";
 import url from "../utils/URL";
+
 // useState is a method that comes with react and returns two values
 export const ProductContext = React.createContext();
 
@@ -14,9 +15,11 @@ export default function ProductProvider({ children }) {
 
   // function will run by default after every render
   React.useEffect(() => {
-    axios
-      .get(`${url}/products`)
-      .then(storeProducts => console.log(storeProducts));
+    setLoading(true);
+    axios.get(`${url}/products`).then(response => {
+      setProducts(response.data);
+      setLoading(false);
+    });
     return () => {};
   });
 
