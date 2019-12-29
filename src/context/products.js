@@ -21,7 +21,7 @@ export default function ProductProvider({ children }) {
       setLoading(false);
     });
     return () => {};
-  });
+  }, []);
 
   return (
     <ProductContext.Provider value={{ products, loading, featured }}>
