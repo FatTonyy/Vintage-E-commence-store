@@ -26,13 +26,14 @@ export default function ProductDetails() {
         <img src={url} alt={title} className="single-product-image" />
         <article>
           <h1>{title}</h1>
-          <h2>{price}</h2>
+          <h2>GHC {price}</h2>
           <p>{description}</p>
           <button
             className="btn btn-primary btn-block"
             onClick={() => {
               // add to cart
 
+              // sends user to cart page
               history.push("/cart");
             }}
           >
