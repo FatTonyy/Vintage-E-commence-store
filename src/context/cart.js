@@ -27,7 +27,9 @@ function CartProvider({ children }) {
   }, [cart]);
 
   // remove item
-  const removeItem = id => {};
+  const removeItem = id => {
+    setCart([...cart].filter(item => item.id !== id));
+  };
   // increase amount
   const increaseAmount = id => {};
   // decrease Amount
