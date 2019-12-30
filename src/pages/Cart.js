@@ -13,5 +13,25 @@ export default function Cart() {
     return <EmptyCart />;
   }
 
-  return <h1>hello from cart page</h1>;
+  return (
+    <section className="cart-items section">
+      <h2>Your Cart</h2>
+      {cart.map(item => {
+        return <CartItem key={item.id} {...item} />;
+      })}
+
+      <h2>total : GHC {total}</h2>
+
+      {/* checking to see if user logs in */}
+      {user ? (
+        <Link to="/checkout" className="btn btn-primary btn-block">
+          Checkout
+        </Link>
+      ) : (
+        <Link to="/login" className="btn btn-primary btn-block">
+          login
+        </Link>
+      )}
+    </section>
+  );
 }
