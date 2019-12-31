@@ -35,9 +35,12 @@ export default function Login() {
       // response =await loginUser
     } else {
       // response = await registerUser
+      response = await registerUser({ email, password, username });
     }
     if (response) {
       //
+      console.log("success");
+      console.log(response);
     } else {
       // show alert
     }
