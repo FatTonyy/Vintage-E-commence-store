@@ -33,6 +33,7 @@ export default function Login() {
     let response;
     if (isMember) {
       // response =await loginUser
+      response = await loginUser({ email, password });
     } else {
       // response = await registerUser
       response = await registerUser({ email, password, username });
