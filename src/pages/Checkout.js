@@ -19,12 +19,26 @@ function Checkout(props) {
   const history = useHistory();
 
   // state values
-  const { name, setName } = React.useState("");
-  const { error, setError } = React.useState("");
+  const [name, setName] = React.useState("");
+  const [error, setError] = React.useState("");
   const isEmpty = !name || alert.show;
 
   async function handleSubmit(e) {
+    showAlert({ msg: "submitting order...please wait" });
     e.preventDefault();
+    const response = await props.stripe
+      .createToken()
+      .catch(error => console.log(error));
+
+    console.log(response);
+
+    const { token } = response;
+    if (token) {
+      console.log(response);
+    } else {
+      hideAlert();
+      setError(response.error.message);
+    }
   }
 
   if (cart.length < 1) return <EmptyCart />;
