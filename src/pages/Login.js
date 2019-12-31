@@ -13,7 +13,7 @@ import { UserContext } from "../context/user";
 export default function Login() {
   const history = useHistory();
   // setup user context
-  const { userLogin } = React.useContext(UserContext);
+  const { userLogin, alert, showAlert } = React.useContext(UserContext);
 
   // state values
   const [email, setEmail] = React.useState("");
@@ -50,9 +50,16 @@ export default function Login() {
       } = response.data;
       const newUser = { token, username };
       userLogin(newUser);
+      showAlert({
+        msg: `congratulations you have made it : ${username}. now gimme all your money`
+      });
       history.push("/products");
     } else {
       // show alert
+      showAlert({
+        msg: `well you blew it. but no worries try again`,
+        type: "danger"
+      });
     }
   };
 
