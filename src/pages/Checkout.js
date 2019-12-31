@@ -36,8 +36,9 @@ export default function Checkout(props) {
           <label htmlFor="name">name</label>
           <input
             type="text"
+            id="name"
             value={name}
-            onchange={e => {
+            onChange={e => {
               setName(e.target.value);
             }}
           />
