@@ -34,7 +34,6 @@ function Checkout(props) {
 
     const { token } = response;
     if (token) {
-      console.log(response);
     } else {
       hideAlert();
       setError(response.error.message);
